@@ -1,0 +1,21 @@
+header {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../logo.webp");
+    background-position: center;
+}
+
+header h1 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+header button {
+    background-image: url("../../enter.png");
+    width: 64px;
+    height: 64px;
+    background-size: contain;
+    padding: 5px;
+}
