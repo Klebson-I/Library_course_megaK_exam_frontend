@@ -1,21 +1,36 @@
 header {
     width: 100%;
-    padding: 30px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../../logo.webp");
     background-position: center;
+    position: relative;
+    border-bottom: 2px solid black;
 }
 
 header h1 {
     font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    font-size: 60px;
+    letter-spacing: 7px;
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: 900;
 }
 
 header button {
-    background-image: url("../../enter.png");
-    width: 64px;
-    height: 64px;
-    background-size: contain;
+    background-image: url("../../user.png");
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 5px;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translateX(-100%) translateY(-100%);
 }
