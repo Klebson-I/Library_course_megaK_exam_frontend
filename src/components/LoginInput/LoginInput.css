@@ -1,0 +1,29 @@
+.inputDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 20px;
+}
+.inputDiv--label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    position: absolute;
+    top: -50%;
+    left: 0;
+}
+.inputDiv--input {
+    font-size: 22px;
+    padding: 2px;
+    font-family: 'Open Sans', sans-serif;
+    width: 95%;
+    border: none;
+    border-bottom: solid 1px black;
+    outline: none;
+    transition: 0.2s ease-in;
+}
+.inputDiv--input:focus{
+    border-bottom: solid 2px black;
+    width: 97%;
+}

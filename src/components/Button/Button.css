@@ -1,0 +1,12 @@
+.Button {
+    font-size: 22px;
+    background-color: inherit;
+    padding: 5px;
+    width: 50%;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.Button:hover {
+    transform: scale(1.01);
+}
