@@ -1,4 +1,4 @@
-import React, {useContext, useReducer} from 'react';
+import React, { useReducer} from 'react';
 import {Route, Router, Routes} from "react-router-dom";
 import {MainView} from "./views/MainView/MainView";
 import {LoginView} from "./views/LoginView/LoginView";
@@ -7,8 +7,6 @@ import {userContext} from "./utils/UserContext";
 import {userInitialState, userReducer} from "./utils/UserReducer";
 
 export const App = () => {
-
-  const context = useContext(userContext);
 
   const [userState,dispatch] = useReducer(userReducer,userInitialState);
 
