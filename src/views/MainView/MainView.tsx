@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {PageHeader} from "../../components/PageHeader/PageHeader";
 import {BookObject} from "../../utils/types";
+import {Link} from "react-router-dom";
 
 export const MainView = () => {
     const [books,setBooks] = useState<BookObject[]>([]);
@@ -56,6 +57,9 @@ export const MainView = () => {
                     <span>{book.year}</span>
                     <span>{book.amount}</span>
                     <span>{book.id}</span>
+                    <Link to={`/book/${book.id}`}>
+                        <button>Sprawdź</button>
+                    </Link>
                 </div>
             ))
         }
