@@ -1,21 +1,9 @@
-import {createContext} from "react";
+import React, {createContext} from "react";
+import {ActionType, userInitialState, UserState} from "./UserReducer";
 
 interface userContext {
-    name: string;
-    surname: string;
-    city: string;
-    address: string;
-    phone: number;
-    email: string;
-    is_admin: boolean;
+    userState : UserState;
+    dispatch : React.Dispatch<ActionType>;
 }
 
-export const userContext = createContext<userContext>({
-    name: "",
-    surname: "",
-    city: "",
-    address: "",
-    phone: 0,
-    email: "",
-    is_admin: false
-})
+export const userContext = createContext<userContext | null>(null)
