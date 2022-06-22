@@ -6,10 +6,23 @@
     width: 60%;
     background-color:white;
     padding: 20px;
+    min-height: 300px;
 }
 
 .registerForm h1 {
     font-size: 30px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 900;
+}
+
+.registerForm a {
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.registerForm h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    padding: 3px;
 }

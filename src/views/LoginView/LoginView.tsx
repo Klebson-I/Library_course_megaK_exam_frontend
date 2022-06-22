@@ -11,7 +11,6 @@ export const LoginView = () => {
     const [isFailedToLog,setIsFailedToLog] = useState<boolean>(false);
 
     const handleSubmit = async (e : React.FormEvent<HTMLFormElement>) => {
-        console.log("SUBMIT");
         e.preventDefault();
         const isPassCorrect = await fetch('http://localhost:3001/login',{
             method : "POST",
