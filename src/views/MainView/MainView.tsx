@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {PageHeader} from "../../components/PageHeader/PageHeader";
 import {BookObject} from "../../utils/types";
 import {Link} from "react-router-dom";
+import "./MainView.css";
 
 export const MainView = () => {
     const [books,setBooks] = useState<BookObject[]>([]);
@@ -51,14 +52,14 @@ export const MainView = () => {
         <input type="text" value={search} onChange={e=>setSearch(e.target.value)}/>
         {
             books.map(book => (
-                <div key={book.id}>
+                <div key={book.id} className="singleBook">
                     <span>{book.title}</span>
                     <span>{book.genre}</span>
                     <span>{book.year}</span>
                     <span>{book.amount}</span>
                     <span>{book.id}</span>
                     <Link to={`/book/${book.id}`}>
-                        <button>Sprawdź</button>
+                        <button>Check book</button>
                     </Link>
                 </div>
             ))

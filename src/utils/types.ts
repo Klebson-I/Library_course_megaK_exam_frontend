@@ -5,8 +5,10 @@ export interface UserObject {
     address: string;
     phone: number;
     email: string;
-    login: string;
-    password: string;
+}
+
+export interface UserObjectLogin extends UserObject {
+    is_admin: number;
 }
 
 export type BookGenre =
@@ -32,4 +34,11 @@ export interface BookObject {
     genre: BookGenre | null;
     amount: number;
     year: number | null;
+}
+
+export interface AuthorObject {
+    id?: string;
+    name: string;
+    surname: string;
+    book_id: string;
 }
