@@ -60,6 +60,11 @@ export const LoginView = () => {
         const {dispatch} = context;
 
         dispatch({
+            type: "SET_ID",
+            payload: obj.id
+        })
+
+        dispatch({
             type: "SET_NAME",
             payload: obj.name
         })

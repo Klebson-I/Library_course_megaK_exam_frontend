@@ -1,6 +1,13 @@
 import {UserObject} from "./types";
 
-export function validateData({name, surname, city, address, phone, email}: Omit<UserObject,'password'|'login'>) : boolean {
+export function validateData({
+                                 name,
+                                 surname,
+                                 city,
+                                 address,
+                                 phone,
+                                 email
+                             }: Omit<UserObject, 'password' | 'login' | 'id'>): boolean {
     let isError = false;
     if (name.length < 2 || name.length > 50) {
         isError = true;

@@ -42,5 +42,6 @@ export const BookInfo = (props: Props) => {
                 props.book.amount > 0 ? "Book available" : "Out of this book"
             }
         </span>
+
     </div>
 }

@@ -1,4 +1,5 @@
 export interface UserObject {
+    id: string;
     name: string;
     surname: string;
     city: string;

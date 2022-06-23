@@ -1,6 +1,5 @@
-import React from "react";
-
 export interface UserState {
+    id: string;
     name: string;
     surname: string;
     city: string;
@@ -11,23 +10,31 @@ export interface UserState {
 }
 
 export const userInitialState : UserState = {
-    name :"",
-    city:"",
-    address:"",
-    is_admin:false,
-    phone:0,
-    surname:"",
-    email:""
+    id: "",
+    name: "",
+    city: "",
+    address: "",
+    is_admin: false,
+    phone: 0,
+    surname: "",
+    email: ""
+}
+
+interface SetId {
+    type: 'SET_ID';
+    payload: string;
 }
 
 interface SetName {
-    type:'SET_NAME';
-    payload:string;
+    type: 'SET_NAME';
+    payload: string;
 }
+
 interface SetCity {
-    type:'SET_CITY';
-    payload:string;
+    type: 'SET_CITY';
+    payload: string;
 }
+
 interface SetAddress {
     type:'SET_ADDRESS';
     payload:string;
@@ -50,7 +57,7 @@ interface SetEmail {
 }
 
 
-export type ActionType = SetName|SetSurname|SetAddress|SetAdmin|SetPhone|SetCity|SetEmail;
+export type ActionType = SetName | SetSurname | SetAddress | SetAdmin | SetPhone | SetCity | SetEmail | SetId;
 
 export const userReducer = (state : UserState, action : ActionType) : UserState => {
     switch (action.type) {
@@ -87,15 +94,22 @@ export const userReducer = (state : UserState, action : ActionType) : UserState 
         case "SET_PHONE" : {
             return {
                 ...state,
-                phone : action.payload
+                phone: action.payload
             }
         }
         case "SET_EMAIL" : {
             return {
                 ...state,
-                email : action.payload
+                email: action.payload
             }
         }
-        default : return state;
+        case "SET_ID" : {
+            return {
+                ...state,
+                id: action.payload
+            }
+        }
+        default :
+            return state;
     }
 }
