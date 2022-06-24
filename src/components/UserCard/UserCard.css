@@ -1,1 +1,45 @@
 
+.userCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userCard__imageDiv {
+    margin: 30px;
+}
+
+.userCard__imageDiv--img {
+    width: 200px;
+    height: 200px;
+}
+
+.userCard__userData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userCard__userData span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+}
+
+.userCard__userData--tokenDiv td {
+    border: 2px solid black;
+}
+
+.userCard__userData--createTokenButton {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    padding: 5px;
+    margin: 20px;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.userCard__userData--createTokenButton:hover {
+    background-color: #efefeb;
+}
