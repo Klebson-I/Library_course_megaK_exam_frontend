@@ -33,9 +33,6 @@ export const BookInfo = (props: Props) => {
 
     const hireBook = async () => {
 
-        //@TODO validate if user have already this book
-
-
         if (!context) return;
 
         if (!props.id || !context.userState.id) return;
