@@ -96,7 +96,7 @@ export const LoginView = () => {
 
         dispatch({
             type: "SET_ADMIN",
-            payload: obj.is_admin ? true : false
+            payload: obj.is_admin == 1
         })
     }
 

@@ -43,3 +43,14 @@ export interface AuthorObject {
     surname: string;
     book_id: string;
 }
+
+export interface HireObject {
+    id: string;
+    user_id: string;
+    book_id: string;
+    expire_date: Date;
+    name: string;
+    surname: string;
+    email: string;
+    title: string;
+}
