@@ -32,3 +32,9 @@
     font-weight: bold;
     margin: 20px;
 }
+
+.bookOperationDiv__bookSecondHalf--takeBookButton {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    padding: 5px;
+}

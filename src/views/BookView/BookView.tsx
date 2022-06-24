@@ -29,6 +29,14 @@ export const BookView = () => {
         })();
     }, []);
 
+    const refreshAmountOfBook = async () => {
+        const respBook = await fetch(`http://localhost:3001/book/id/${id}`);
+
+        const bookFromFetch: BookObject | null = await respBook.json();
+
+        setBook(bookFromFetch);
+    }
+
     return <section className="bookOperationDiv">
         <div className="bookOperationDiv__bookFirstHalf">
             <div className="bookOperationDiv__bookFirstHalf__returnDiv">
@@ -36,7 +44,7 @@ export const BookView = () => {
             </div>
             <img src={bookPhoto} alt="book_photo"/>
         </div>
-        <BookInfo book={book} id={id as string} authors={authors}/>
+        <BookInfo book={book} id={id as string} authors={authors} refreshAmountOfBook={refreshAmountOfBook}/>
     </section>
 }
 
