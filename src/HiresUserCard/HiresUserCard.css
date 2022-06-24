@@ -1,0 +1,23 @@
+.hireSection {
+    background-color: white;
+}
+
+.hireSection--table--thead {
+    width: 100%;
+}
+
+.hireSection--table--thead--tr {
+    width: 100%;
+}
+
+.hireSection--table--thead--tr td {
+    margin: 10px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.hireSection--table--tbody--tr td {
+    margin: 10px;
+    border: 2px solid black;
+    padding: 5px;
+}
