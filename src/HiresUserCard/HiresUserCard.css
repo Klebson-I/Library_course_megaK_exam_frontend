@@ -1,5 +1,16 @@
 .hireSection {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hireSection h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .hireSection--table--thead {

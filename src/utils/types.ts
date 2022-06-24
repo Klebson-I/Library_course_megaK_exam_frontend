@@ -54,3 +54,9 @@ export interface HireObject {
     email: string;
     title: string;
 }
+
+export interface TokenObject {
+    id: string;
+    login: string;
+    password: string;
+}

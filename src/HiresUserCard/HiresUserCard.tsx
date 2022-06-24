@@ -42,13 +42,14 @@ export const HiresUserCard = () => {
     }
 
     return context?.userState.name !== "" ? <section className="hireSection">
+            <h2>{context && context.userState.is_admin ? "Books of clients" : "Your books"}</h2>
             <table className="hireSection--table">
                 <thead className="hireSection--table--thead">
                 <tr className="hireSection--table--thead--tr">
                     <td>ID</td>
                     <td>Book identification</td>
                     <td>Title</td>
-                    <td>Expiration date</td>
+                    <td>Expiration date (Year:Month:Day)</td>
                     {
                         context ?
                             context.userState.is_admin ?
@@ -65,7 +66,7 @@ export const HiresUserCard = () => {
                             <td>{hire.id}</td>
                             <td>{hire.book_id}</td>
                             <td>{hire.title}</td>
-                            <td>{hire.expire_date.toString()}</td>
+                            <td>{hire.expire_date.toString().substring(0, 10)}</td>
                             {
                                 context ?
                                     context.userState.is_admin ?
