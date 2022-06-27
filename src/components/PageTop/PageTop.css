@@ -1,0 +1,16 @@
+.userSection__header {
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.userSection__header__backLink--image {
+    width: 64px;
+    height: 64px;
+}
+
+.userSection__header__backLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transform: translateX(20px);
+}
