@@ -10,11 +10,6 @@
     min-height: 200px;
 }
 
-.userSection__header {
-    margin-bottom: 20px;
-    background-color: white;
-}
-
 .userSection__header--search {
     width: 100%;
     font-size: 35px;

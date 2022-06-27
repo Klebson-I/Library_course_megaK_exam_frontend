@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {PageHeader} from "../../components/PageHeader/PageHeader";
 import {BookObject} from "../../utils/types";
 import {Link} from "react-router-dom";
 import "./MainView.css";
+import {PageTop} from "../../components/PageTop/PageTop";
 
 export const MainView = () => {
     const [books,setBooks] = useState<BookObject[]>([]);
@@ -49,7 +49,7 @@ export const MainView = () => {
 
     return <>
         <div className="userSection__header">
-            <PageHeader/>
+            <PageTop/>
             <input
                 type="text" value={search} onChange={e => setSearch(e.target.value)}
                 className="userSection__header--search"

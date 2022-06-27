@@ -1,5 +1,4 @@
 .userSection__header {
-    margin-bottom: 20px;
     background-color: white;
 }
 
@@ -9,8 +8,17 @@
 }
 
 .userSection__header__backLink {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    transform: translateX(20px);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
