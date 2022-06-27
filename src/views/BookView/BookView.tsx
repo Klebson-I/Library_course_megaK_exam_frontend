@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {AuthorObject, BookObject} from "../../utils/types";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {BookInfo} from "../../components/BookInfo/BookInfo";
 import bookPhoto from "../../book.jpg";
-import arrow from "../../backarrow.png";
 import "./BookView.css";
+import {PageTop} from "../../components/PageTop/PageTop";
 
 export const BookView = () => {
     const [book, setBook] = useState<BookObject | null>(null);
@@ -37,15 +37,17 @@ export const BookView = () => {
         setBook(bookFromFetch);
     }
 
-    return <section className="bookOperationDiv">
-        <div className="bookOperationDiv__bookFirstHalf">
-            <div className="bookOperationDiv__bookFirstHalf__returnDiv">
-                <Link to="/"><img src={arrow} alt="backarrow"/></Link>
+    return <main className="singleBookView">
+        <PageTop/>
+
+        <section className="bookOperationDiv">
+            <div className="bookOperationDiv__bookFirstHalf">
+                <img src={bookPhoto} alt="book_photo"/>
             </div>
-            <img src={bookPhoto} alt="book_photo"/>
-        </div>
-        <BookInfo book={book} id={id as string} authors={authors} refreshAmountOfBook={refreshAmountOfBook}/>
-    </section>
+            <BookInfo book={book} id={id as string} authors={authors} refreshAmountOfBook={refreshAmountOfBook}/>
+        </section>
+    </main>
+
 }
 
 

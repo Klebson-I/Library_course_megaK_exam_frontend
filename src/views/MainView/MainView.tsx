@@ -48,21 +48,28 @@ export const MainView = () => {
     },[]);
 
     return <>
-        <PageHeader/>
-        <input type="text" value={search} onChange={e=>setSearch(e.target.value)}/>
-        {
-            books.map(book => (
-                <div key={book.id} className="singleBook">
-                    <span>{book.title}</span>
-                    <span>{book.genre}</span>
-                    <span>{book.year}</span>
-                    <span>{book.amount}</span>
-                    <span>{book.id}</span>
-                    <Link to={`/book/${book.id}`}>
-                        <button>Check book</button>
-                    </Link>
-                </div>
-            ))
-        }
+        <div className="userSection__header">
+            <PageHeader/>
+            <input
+                type="text" value={search} onChange={e => setSearch(e.target.value)}
+                className="userSection__header--search"
+                placeholder="Search"
+            />
+        </div>
+        <main className="bookContainer">
+            {
+                books.map(book => (
+                    <div key={book.id} className="singleBook">
+                        <span>Title : {book.title}</span>
+                        <span>Genre : {book.genre}</span>
+                        <span>Year of release : {book.year}</span>
+                        <span>Available amount : {book.amount}</span>
+                        <Link to={`/book/${book.id}`}>
+                            <button>Check book</button>
+                        </Link>
+                    </div>
+                ))
+            }
+        </main>
     </>
 }

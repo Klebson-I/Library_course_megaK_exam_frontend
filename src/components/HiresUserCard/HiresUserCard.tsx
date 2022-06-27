@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from "react";
 import "./HiresUserCard.css";
-import {HireObject} from "../utils/types";
-import {userContext} from "../utils/UserContext";
+import {HireObject} from "../../utils/types";
+import {userContext} from "../../utils/UserContext";
+import {isExpire} from "../../utils/utils";
 
 
 export const HiresUserCard = () => {
@@ -66,7 +67,10 @@ export const HiresUserCard = () => {
                             <td>{hire.id}</td>
                             <td>{hire.book_id}</td>
                             <td>{hire.title}</td>
-                            <td>{hire.expire_date.toString().substring(0, 10)}</td>
+                            <td style={{
+                                border: isExpire(hire.expire_date) ? "2px solid red" : "5px solid green"
+                            }}
+                            >{hire.expire_date.toString().substring(0, 10)}</td>
                             {
                                 context ?
                                     context.userState.is_admin ?

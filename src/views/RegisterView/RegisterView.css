@@ -4,9 +4,11 @@
     align-items: center;
     justify-content: center;
     width: 60%;
-    background-color:white;
+    background-color: white;
     padding: 20px;
     min-height: 300px;
+    margin: auto;
+    border: 2px solid black;
 }
 
 .registerForm h1 {

@@ -1,9 +1,45 @@
 .singleBook {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 30px;
+    margin: 30px;
     border: 2px solid black;
-    width: 50%;
+    width: 45%;
     background-color: white;
+    min-height: 200px;
+}
+
+.userSection__header {
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.userSection__header--search {
+    width: 100%;
+    font-size: 35px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bookContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.singleBook span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+}
+
+.singleBook button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    padding: 5px;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.singleBook button:hover {
+    background-color: #f5f1e9;
 }

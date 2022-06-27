@@ -3,7 +3,7 @@ import "./UserView.css";
 import {Link} from "react-router-dom";
 import {userContext} from "../../utils/UserContext";
 import {UserCard} from "../../components/UserCard/UserCard";
-import {HiresUserCard} from "../../HiresUserCard/HiresUserCard";
+import {HiresUserCard} from "../../components/HiresUserCard/HiresUserCard";
 import {PageHeader} from "../../components/PageHeader/PageHeader";
 import arrow from "../../backarrow.png";
 

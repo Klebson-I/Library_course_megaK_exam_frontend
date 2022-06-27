@@ -48,7 +48,7 @@ export interface HireObject {
     id: string;
     user_id: string;
     book_id: string;
-    expire_date: Date;
+    expire_date: string;
     name: string;
     surname: string;
     email: string;

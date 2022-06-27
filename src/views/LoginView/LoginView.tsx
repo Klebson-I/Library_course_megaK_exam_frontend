@@ -5,6 +5,7 @@ import './LoginView.css';
 import {Button} from "../../components/Button/Button";
 import {UserObjectLogin} from "../../utils/types";
 import {userContext} from "../../utils/UserContext";
+import {PageTop} from "../../components/PageTop/PageTop";
 
 export const LoginView = () => {
     const [login, setLogin] = useState<string>("");
@@ -107,39 +108,43 @@ export const LoginView = () => {
     }
 
 
-    return <form onSubmit={e => handleSubmit(e)} className="loginForm">
-        <h1>Log in</h1>
-        {
-            isLog
-                ?
-                <React.Fragment>
-                    <h2>Login successful</h2>
-                    <Link to="/">Go back to main page</Link>
-                </React.Fragment>
-                : isFailedToLog
-                ?
-                <React.Fragment>
-                    <h2>Login failed</h2>
-                    <Link to="/login" onClick={()=>resetForm()}>Try again</Link>
-                </React.Fragment>
-                :<React.Fragment>
-                    <LoginInput
-                        type="text"
-                        name="login"
-                        value={login}
-                        handleChange={setLogin}
-                        labelText="Login"
-                    />
-                    <LoginInput
-                        type="password"
-                        name="password"
-                        value={password}
-                        handleChange={setPassword}
-                        labelText="Password"
-                    />
-                    <Button type="submit">Login</Button>
-                    <Link to="/register">Don't have an account ? Register here</Link>
-                </React.Fragment>
-        }
-    </form>
+    return <>
+        <PageTop/>
+        <form onSubmit={e => handleSubmit(e)} className="loginForm">
+            <h1>Log in</h1>
+            {
+                isLog
+                    ?
+                    <React.Fragment>
+                        <h2>Login successful</h2>
+                        <Link to="/">Go back to main page</Link>
+                    </React.Fragment>
+                    : isFailedToLog
+                    ?
+                    <React.Fragment>
+                        <h2>Login failed</h2>
+                        <Link to="/login" onClick={() => resetForm()}>Try again</Link>
+                    </React.Fragment>
+                    : <React.Fragment>
+                        <LoginInput
+                            type="text"
+                            name="login"
+                            value={login}
+                            handleChange={setLogin}
+                            labelText="Login"
+                        />
+                        <LoginInput
+                            type="password"
+                            name="password"
+                            value={password}
+                            handleChange={setPassword}
+                            labelText="Password"
+                        />
+                        <Button type="submit">Login</Button>
+                        <Link to="/register">Don't have an account ? Register here</Link>
+                    </React.Fragment>
+            }
+        </form>
+    </>
+
 }
