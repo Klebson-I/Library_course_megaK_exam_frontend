@@ -9,6 +9,8 @@ import {PageTop} from "../../components/PageTop/PageTop";
 export const BookView = () => {
     const [book, setBook] = useState<BookObject | null>(null);
 
+    const [isBlur, setIsBlur] = useState<boolean>(false);
+
     const {id} = useParams();
 
     const [authors, setAuthors] = useState<AuthorObject[] | null>(null);
@@ -42,9 +44,17 @@ export const BookView = () => {
 
         <section className="bookOperationDiv">
             <div className="bookOperationDiv__bookFirstHalf">
-                <img src={bookPhoto} alt="book_photo"/>
+                <img src={bookPhoto} alt="book_photo" style={{
+                    filter: isBlur ? "blur(10px)" : "none"
+                }}/>
             </div>
-            <BookInfo book={book} id={id as string} authors={authors} refreshAmountOfBook={refreshAmountOfBook}/>
+            <BookInfo
+                book={book}
+                id={id as string}
+                authors={authors}
+                refreshAmountOfBook={refreshAmountOfBook}
+                setIsBlur={setIsBlur}
+            />
         </section>
     </main>
 

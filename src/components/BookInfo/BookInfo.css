@@ -5,6 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
 }
 
 .bookOperationDiv__bookSecondHalf h1 {
@@ -34,6 +35,38 @@
 }
 
 .bookOperationDiv__bookSecondHalf--takeBookButton {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.bookOperationDiv__bookSecondHalf--confirmDiv {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    min-width: 300px;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.bookOperationDiv__bookSecondHalf--confirmDiv span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.bookOperationDiv__bookSecondHalf--confirmDiv div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.bookOperationDiv__bookSecondHalf--confirmDiv div button {
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;
     padding: 5px;
