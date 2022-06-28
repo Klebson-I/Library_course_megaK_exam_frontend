@@ -1,13 +1,15 @@
 import React, {useContext, useEffect, useState} from "react";
 import "./HiresUserCard.css";
-import {HireObject} from "../../utils/types";
+import {HireObject, HireObjectAdmin} from "../../utils/types";
 import {userContext} from "../../utils/UserContext";
 import {isExpire} from "../../utils/utils";
 
 
 export const HiresUserCard = () => {
 
-    const [hires, setHires] = useState<null | HireObject[]>(null);
+    const [hires, setHires] = useState<null | HireObject[] | HireObjectAdmin[]>(null);
+
+    const [debt, setDebt] = useState<number>(0);
 
     const context = useContext(userContext);
 
@@ -16,15 +18,19 @@ export const HiresUserCard = () => {
 
         if (context.userState.is_admin) {
             (async () => {
-                const resp = await fetch(`http://localhost:3001/hire`);
-                const userHires = await resp.json() as HireObject[] | null;
-                setHires(userHires);
+                const resp = await fetch(`http://localhost:3001/debt`);
+                const userHiresWithDebt = await resp.json() as HireObjectAdmin[] | null;
+                if (!userHiresWithDebt) return;
+                setHires(userHiresWithDebt);
             })();
         } else {
             (async () => {
                 const resp = await fetch(`http://localhost:3001/hire/${context.userState.id}`);
                 const userHires = await resp.json() as HireObject[] | null;
                 setHires(userHires);
+                const respDebt = await fetch(`http://localhost:3001/debt/${context.userState.id}`);
+                const debt = await respDebt.json();
+                setDebt(debt);
             })();
         }
     }, []);
@@ -42,6 +48,11 @@ export const HiresUserCard = () => {
         setHires(userHires);
     }
 
+    const getDebtByHire = async (id: string): Promise<number> => {
+        const resp = await fetch(`http://localhost:3001/debt/hire/${id}`);
+        return await resp.json();
+    }
+
     return context?.userState.name !== "" ? <section className="hireSection">
             <h2>{context && context.userState.is_admin ? "Books of clients" : "Your books"}</h2>
             <table className="hireSection--table">
@@ -54,7 +65,10 @@ export const HiresUserCard = () => {
                     {
                         context ?
                             context.userState.is_admin ?
-                                <td>Action</td> : null
+                                <>
+                                    <td>Action</td>
+                                    <td>Debt</td>
+                                </> : null
                             : null
                     }
                 </tr>
@@ -74,9 +88,14 @@ export const HiresUserCard = () => {
                             {
                                 context ?
                                     context.userState.is_admin ?
-                                        <td>
-                                            <button onClick={() => deleteHire(hire.id)}>DELETE</button>
-                                        </td> : null
+                                        <>
+                                            <td>
+                                                <button onClick={() => deleteHire(hire.id)}>DELETE</button>
+                                            </td>
+                                            <td>
+                                                {(hire as HireObjectAdmin).debt}
+                                            </td>
+                                        </> : null
                                     : null
                             }
                         </tr>
@@ -84,6 +103,12 @@ export const HiresUserCard = () => {
                 }
                 </tbody>
             </table>
+
+            {
+                debt !== 0 && debt ?
+                    <span className="hireSection--debtSpan">Your debt is {debt} zł</span> :
+                    null
+            }
         </section>
         : null
 }

@@ -55,6 +55,10 @@ export interface HireObject {
     title: string;
 }
 
+export interface HireObjectAdmin extends HireObject {
+    debt: number;
+}
+
 export interface TokenObject {
     id: string;
     login: string;

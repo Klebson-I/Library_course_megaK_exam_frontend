@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 import {userContext} from "../../utils/UserContext";
 import {UserCard} from "../../components/UserCard/UserCard";
 import {HiresUserCard} from "../../components/HiresUserCard/HiresUserCard";
-import {PageHeader} from "../../components/PageHeader/PageHeader";
-import arrow from "../../backarrow.png";
+import {PageTop} from "../../components/PageTop/PageTop";
+import settings from "../../images/settings.png";
 
 export const UserView = () => {
 
@@ -15,12 +15,10 @@ export const UserView = () => {
 
     return <section className="userSection">
         <div className="userSection__header">
-            <PageHeader/>
-            <div className="userSection__header__backLink">
-                <Link to="/"><img src={arrow} alt="" className="userSection__header__backLink--image"/></Link>
-            </div>
+            <PageTop/>
         </div>
         <div className="userSection__userInformation">
+            <Link to="/settings"> <img src={settings} alt="" className="userSection__userInformation--img"/> </Link>
             <UserCard/>
             <HiresUserCard/>
         </div>

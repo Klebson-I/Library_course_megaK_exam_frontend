@@ -51,20 +51,25 @@ interface SetPhone {
     type:'SET_PHONE';
     payload:number;
 }
+
 interface SetEmail {
-    type:'SET_EMAIL';
-    payload:string;
+    type: 'SET_EMAIL';
+    payload: string;
+}
+
+interface Reset {
+    type: 'RESET',
 }
 
 
-export type ActionType = SetName | SetSurname | SetAddress | SetAdmin | SetPhone | SetCity | SetEmail | SetId;
+export type ActionType = SetName | SetSurname | SetAddress | SetAdmin | SetPhone | SetCity | SetEmail | SetId | Reset;
 
-export const userReducer = (state : UserState, action : ActionType) : UserState => {
+export const userReducer = (state: UserState, action: ActionType): UserState => {
     switch (action.type) {
         case "SET_NAME" : {
             return {
                 ...state,
-                name : action.payload
+                name: action.payload
             }
         }
         case "SET_SURNAME" : {
@@ -107,6 +112,11 @@ export const userReducer = (state : UserState, action : ActionType) : UserState 
             return {
                 ...state,
                 id: action.payload
+            }
+        }
+        case "RESET": {
+            return {
+                ...userInitialState
             }
         }
         default :

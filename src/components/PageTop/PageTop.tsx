@@ -1,16 +1,34 @@
 import {PageHeader} from "../PageHeader/PageHeader";
 import {Link} from "react-router-dom";
-import arrow from "../../backarrow.png";
-import user from "../../user.png";
-import React from "react";
+import home from "../../images/home.png";
+import user from "../../images/user.png";
+import React, {useContext} from "react";
 import "./PageTop.css";
+import {userContext} from "../../utils/UserContext";
+import enter from "../../images/enter.png";
 
 export const PageTop = () => {
+
+    const context = useContext(userContext);
+
+    const logOut = () => {
+        if (!context) return;
+        const {dispatch} = context;
+        dispatch({
+            type: "RESET"
+        })
+    }
+
     return <div className="userSection__header">
+        <Link to="/">
+            <button onClick={logOut} className="logOutButton"><img src={enter} alt="" className="logOutButton--img"/>
+            </button>
+        </Link>
+
         <PageHeader/>
         <nav>
             <Link to="/" className="userSection__header__backLink">
-                <img src={arrow} alt="" className="userSection__header__backLink--image"/>
+                <img src={home} alt="" className="userSection__header__backLink--image"/>
                 <span>Main page</span>
             </Link>
 
@@ -21,3 +39,5 @@ export const PageTop = () => {
         </nav>
     </div>
 }
+
+// <a href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by hqrloveq - Flaticon</a>

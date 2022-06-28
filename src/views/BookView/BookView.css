@@ -1,5 +1,6 @@
 .singleBookView {
     width: 100%;
+    display: flex;
 }
 
 .bookOperationDiv {
@@ -7,9 +8,9 @@
     min-height: 400px;
     background-color: white;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    padding-bottom: 50px;
 }
 
 .bookOperationDiv__bookFirstHalf {
@@ -18,6 +19,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .bookOperationDiv__bookFirstHalf img {

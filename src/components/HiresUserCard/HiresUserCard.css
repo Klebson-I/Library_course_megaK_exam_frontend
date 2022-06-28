@@ -11,6 +11,8 @@
     font-weight: bold;
     font-size: 25px;
     margin-bottom: 20px;
+    margin-top: 50px;
+
 }
 
 .hireSection--table--thead {
@@ -31,4 +33,10 @@
     margin: 10px;
     border: 2px solid black;
     padding: 5px;
+}
+
+.hireSection--debtSpan {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 25px;
+    margin-top: 20px;
 }

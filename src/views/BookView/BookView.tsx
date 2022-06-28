@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {AuthorObject, BookObject} from "../../utils/types";
 import {useParams} from "react-router-dom";
 import {BookInfo} from "../../components/BookInfo/BookInfo";
-import bookPhoto from "../../book.jpg";
+import bookPhoto from "../../images/book.jpg";
 import "./BookView.css";
 import {PageTop} from "../../components/PageTop/PageTop";
 
@@ -39,24 +39,26 @@ export const BookView = () => {
         setBook(bookFromFetch);
     }
 
-    return <main className="singleBookView">
+    return <>
         <PageTop/>
+        <main className="singleBookView">
+            <section className="bookOperationDiv">
+                <div className="bookOperationDiv__bookFirstHalf">
+                    <img src={bookPhoto} alt="book_photo" style={{
+                        filter: isBlur ? "blur(10px)" : "none"
+                    }}/>
+                </div>
+                <BookInfo
+                    book={book}
+                    id={id as string}
+                    authors={authors}
+                    refreshAmountOfBook={refreshAmountOfBook}
+                    setIsBlur={setIsBlur}
+                />
+            </section>
+        </main>
+    </>
 
-        <section className="bookOperationDiv">
-            <div className="bookOperationDiv__bookFirstHalf">
-                <img src={bookPhoto} alt="book_photo" style={{
-                    filter: isBlur ? "blur(10px)" : "none"
-                }}/>
-            </div>
-            <BookInfo
-                book={book}
-                id={id as string}
-                authors={authors}
-                refreshAmountOfBook={refreshAmountOfBook}
-                setIsBlur={setIsBlur}
-            />
-        </section>
-    </main>
 
 }
 

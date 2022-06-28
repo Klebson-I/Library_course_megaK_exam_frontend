@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import "./UserCard.css";
 import {userContext} from "../../utils/UserContext";
-import image from "../../user2.png";
+import image from "../../images/user2.png";
 import {TokenObject} from "../../utils/types";
 
 
