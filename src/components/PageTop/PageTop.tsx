@@ -2,17 +2,16 @@ import {PageHeader} from "../PageHeader/PageHeader";
 import {Link} from "react-router-dom";
 import home from "../../images/home.png";
 import user from "../../images/user.png";
-import React, {useContext} from "react";
+import React from "react";
 import "./PageTop.css";
-import {userContext} from "../../utils/UserContext";
+import {useUserContext} from "../../utils/UserContext";
 import enter from "../../images/enter.png";
 
 export const PageTop = () => {
 
-    const context = useContext(userContext);
+    const context = useUserContext();
 
     const logOut = () => {
-        if (!context) return;
         const {dispatch} = context;
         dispatch({
             type: "RESET"

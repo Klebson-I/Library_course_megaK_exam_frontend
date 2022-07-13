@@ -37,6 +37,11 @@ export interface BookObject {
     year: number | null;
 }
 
+export interface BookObjectAdd extends BookObject {
+    authors: string[];
+}
+
+
 export interface AuthorObject {
     id?: string;
     name: string;
@@ -64,3 +69,17 @@ export interface TokenObject {
     login: string;
     password: string;
 }
+
+export type UpdateResponse = true
+    | "Cannot use this password"
+    | "Cannot use this login"
+    | "Invalid passes";
+
+export interface UserInfo {
+    phone: number;
+    email: string;
+    login: string;
+    password: string;
+    confirmPassword: string;
+}
+

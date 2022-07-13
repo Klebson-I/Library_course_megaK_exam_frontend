@@ -71,38 +71,43 @@ export const RegisterView = () => {
 
     return <>
         <PageTop/>
-        <form className="registerForm" onSubmit={(e) => handleSubmit(e)}>
-            {
-                isRegisterTry
-                    ?
-                    isFailedToRegister
+        <main>
+            <form className="registerForm" onSubmit={(e) => handleSubmit(e)}>
+                {
+                    isRegisterTry
                         ?
-                        <React.Fragment>
-                            <h2>Login failed</h2>
-                            <Link to="/register" onClick={() => resetForm()}>Try again</Link>
-                        </React.Fragment>
+                        isFailedToRegister
+                            ?
+                            <React.Fragment>
+                                <h2>Login failed</h2>
+                                <Link to="/register" onClick={() => resetForm()}>Try again</Link>
+                            </React.Fragment>
+                            :
+                            <React.Fragment>
+                                <h2>Register successful</h2>
+                                <Link to="/login">Go to login</Link>
+                            </React.Fragment>
                         :
                         <React.Fragment>
-                            <h2>Register successful</h2>
-                            <Link to="/login">Go to login</Link>
+                            <h1>Register now</h1>
+                            <LoginInput type="text" name="name" value={name} handleChange={setName} labelText="Name"/>
+                            <LoginInput type="text" name="surname" value={surname} handleChange={setSurname}
+                                        labelText="Surname"/>
+                            <LoginInput type="text" name="city" value={city} handleChange={setCity} labelText="City"/>
+                            <LoginInput type="text" name="address" value={address} handleChange={setAddress}
+                                        labelText="Address"/>
+                            <LoginInput type="number" name="phone" value={phone} handleChange={setPhone}
+                                        labelText="Phone"/>
+                            <LoginInput type="email" name="email" value={email} handleChange={setEmail}
+                                        labelText="Email"/>
+                            <LoginInput type="text" name="login" value={login} handleChange={setLogin}
+                                        labelText="Login"/>
+                            <LoginInput type="password" name="password" value={password} handleChange={setPassword}
+                                        labelText="Password"/>
+                            <Button type="submit">Submit registration</Button>
                         </React.Fragment>
-                    :
-                    <React.Fragment>
-                        <h1>Register now</h1>
-                        <LoginInput type="text" name="name" value={name} handleChange={setName} labelText="Name"/>
-                        <LoginInput type="text" name="surname" value={surname} handleChange={setSurname}
-                                    labelText="Surname"/>
-                        <LoginInput type="text" name="city" value={city} handleChange={setCity} labelText="City"/>
-                        <LoginInput type="text" name="address" value={address} handleChange={setAddress}
-                                    labelText="Address"/>
-                        <LoginInput type="number" name="phone" value={phone} handleChange={setPhone} labelText="Phone"/>
-                        <LoginInput type="email" name="email" value={email} handleChange={setEmail} labelText="Email"/>
-                        <LoginInput type="text" name="login" value={login} handleChange={setLogin} labelText="Login"/>
-                        <LoginInput type="password" name="password" value={password} handleChange={setPassword}
-                                    labelText="Password"/>
-                        <Button type="submit">Submit registration</Button>
-                    </React.Fragment>
-            }
-        </form>
+                }
+            </form>
+        </main>
     </>
 }

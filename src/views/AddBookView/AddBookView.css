@@ -1,0 +1,55 @@
+.addBookContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.addBookContainer__form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+}
+
+.addBookContainer__form--authorInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsInput {
+    font-size: 22px;
+    padding: 2px;
+    font-family: 'Open Sans', sans-serif;
+    width: 95%;
+    border: none;
+    border-bottom: solid 1px black;
+    outline: none;
+    transition: 0.2s ease-in;
+    margin: 10px 0;
+}
+
+.settingsInput:focus {
+    border-bottom: solid 2px black;
+    width: 97%;
+}
+
+.addBookContainer__form label {
+    width: 50%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.addBookContainer__form button {
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    padding: 5px;
+    background-color: inherit;
+    cursor: pointer;
+}

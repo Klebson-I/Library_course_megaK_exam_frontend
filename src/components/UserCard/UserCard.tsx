@@ -1,12 +1,12 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import "./UserCard.css";
-import {userContext} from "../../utils/UserContext";
+import {useUserContext} from "../../utils/UserContext";
 import image from "../../images/user2.png";
 import {TokenObject} from "../../utils/types";
 
 
 export const UserCard = () => {
-    const context = useContext(userContext);
+    const context = useUserContext();
     const [token, setToken] = useState<TokenObject | null>(null);
 
     const createToken = async (): Promise<void> => {
@@ -20,10 +20,10 @@ export const UserCard = () => {
             <img src={image} alt="" className="userCard__imageDiv--img"/>
         </div>
         <div className="userCard__userData">
-            <span>{context && `Name and surname : ${context.userState.name} ${context.userState.surname}`}</span>
-            <span>{context && `Address : ${context.userState.city}, ${context.userState.address}`}</span>
-            <span>{context && `Phone number : ${context.userState.phone}`}</span>
-            <span>{context && `Email : ${context.userState.email}`}</span>
+            <span>{`Name and surname : ${context.userState.name} ${context.userState.surname}`}</span>
+            <span>{`Address : ${context.userState.city}, ${context.userState.address}`}</span>
+            <span>{`Phone number : ${context.userState.phone}`}</span>
+            <span>{`Email : ${context.userState.email}`}</span>
             {
                 context && context.userState.is_admin
                     ? <button className="userCard__userData--createTokenButton" onClick={createToken}>

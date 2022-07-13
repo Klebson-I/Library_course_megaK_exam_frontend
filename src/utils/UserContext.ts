@@ -1,4 +1,4 @@
-import React, {createContext} from "react";
+import React, {createContext, useContext} from "react";
 import {ActionType, UserState} from "./UserReducer";
 
 interface userContextType {
@@ -7,3 +7,11 @@ interface userContextType {
 }
 
 export const userContext = createContext<userContextType | null>(null)
+
+export const useUserContext = (): userContextType => {
+    const context = useContext(userContext);
+    if (!context) {
+        throw new Error('Context is empty');
+    }
+    return context;
+}

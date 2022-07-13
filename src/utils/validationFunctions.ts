@@ -53,3 +53,48 @@ export function validatePassword(password: string): boolean {
     }
     return isError;
 }
+
+export interface SingleFieldValidateInterface {
+    login: string;
+    password: string;
+    phone: number;
+    email: string;
+}
+
+export const validateSingleField = (property: Partial<Record<keyof SingleFieldValidateInterface, any>>): boolean => {
+
+    let isError = false;
+
+    switch (property) {
+        case property.login : {
+            if (property.login.length < 5) {
+                isError = true;
+                alert('Login should has 5 - 50 characters');
+            }
+            break;
+        }
+        case property.email : {
+            if (property.email.length < 6 || property.email.length > 60 || !property.email.split("").includes('@')) {
+                isError = true;
+                alert('Email should has 6 - 60 characters and have @ sign');
+            }
+            break;
+        }
+        case property.phone : {
+            if (property.phone.toString().length !== 9) {
+                isError = true;
+                alert('Phone number should has 9 signs');
+            }
+            break;
+        }
+        case property.password : {
+            isError = validatePassword(property.password);
+            break;
+        }
+
+        default :
+            break;
+    }
+
+    return isError;
+}

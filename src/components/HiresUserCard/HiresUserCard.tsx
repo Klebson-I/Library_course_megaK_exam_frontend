@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./HiresUserCard.css";
 import {HireObject, HireObjectAdmin} from "../../utils/types";
-import {userContext} from "../../utils/UserContext";
+import {useUserContext} from "../../utils/UserContext";
 import {isExpire} from "../../utils/utils";
 
 
@@ -11,11 +11,9 @@ export const HiresUserCard = () => {
 
     const [debt, setDebt] = useState<number>(0);
 
-    const context = useContext(userContext);
+    const context = useUserContext();
 
     useEffect(() => {
-        if (!context) return;
-
         if (context.userState.is_admin) {
             (async () => {
                 const resp = await fetch(`http://localhost:3001/debt`);
@@ -53,8 +51,8 @@ export const HiresUserCard = () => {
         return await resp.json();
     }
 
-    return context?.userState.name !== "" ? <section className="hireSection">
-            <h2>{context && context.userState.is_admin ? "Books of clients" : "Your books"}</h2>
+    return context.userState.name !== "" ? <section className="hireSection">
+            <h2>{context.userState.is_admin ? "Books of clients" : "Your books"}</h2>
             <table className="hireSection--table">
                 <thead className="hireSection--table--thead">
                 <tr className="hireSection--table--thead--tr">
@@ -63,13 +61,13 @@ export const HiresUserCard = () => {
                     <td>Title</td>
                     <td>Expiration date (Year:Month:Day)</td>
                     {
-                        context ?
-                            context.userState.is_admin ?
+
+                        context.userState.is_admin ?
                                 <>
                                     <td>Action</td>
                                     <td>Debt</td>
                                 </> : null
-                            : null
+
                     }
                 </tr>
                 </thead>

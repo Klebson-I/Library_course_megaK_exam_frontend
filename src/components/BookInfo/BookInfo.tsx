@@ -1,7 +1,7 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import "./BookInfo.css";
 import {AuthorObject, BookObject} from "../../utils/types";
-import {userContext} from "../../utils/UserContext";
+import {useUserContext} from "../../utils/UserContext";
 import {Link} from "react-router-dom";
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 
 export const BookInfo = (props: Props) => {
 
-    const context = useContext(userContext);
+    const context = useUserContext();
 
     const [hireClick, setHireClick] = useState<boolean>(false);
 
@@ -41,8 +41,6 @@ export const BookInfo = (props: Props) => {
         setHireClick(false);
 
         props.setIsBlur(false);
-
-        if (!context) return;
 
         if (!props.id || !context.userState.id) return;
 
@@ -117,7 +115,6 @@ export const BookInfo = (props: Props) => {
             }
         </span>
             {
-                context &&
                 context.userState.id !== ""
                     ?
                     <button className="bookOperationDiv__bookSecondHalf--takeBookButton"
